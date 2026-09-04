@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJSG Parfums | Perfumes 100ml</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0b0b; color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-[#0b0b0b] text-gray-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+
+    <header class="sticky top-0 z-50 bg-[#0b0b0b]/90 backdrop-blur-md border-b border-amber-500/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <svg width="45" height="45" viewBox="0 0 100 100" class="fill-amber-500">
+                    <path d="M50 5 L90 25 L90 75 L50 95 L10 75 L10 25 Z" fill="none" stroke="#d97706" stroke-width="4"/>
+                    <text x="50" y="58" font-family="'Cinzel', serif" font-size="32" font-weight="bold" fill="#d97706" text-anchor="middle">D</text>
+                </svg>
+                <div class="flex flex-col">
+                    <span class="font-cinzel text-xl font-bold tracking-widest text-amber-500">DJSG</span>
+                    <span class="text-[9px] tracking-[0.3em] text-gray-400 font-semibold uppercase">Parfums</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider uppercase">
+                <a href="inicio.html" class="text-gray-300 hover:text-amber-500 transition-colors">Inicio</a>
+                <a href="perfumes 100ml.html" class="text-amber-500 transition-colors">Perfumes 100ml</a>
+                <a href="Decants Menu.html" class="text-gray-300 hover:text-amber-500 transition-colors">Decants</a>
+                <a href="pedido.html" class="text-gray-300 hover:text-amber-500 transition-colors">Hacer Pedido</a>
+            </nav>
+
+            <button onclick="toggleCart()" class="relative inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-amber-500/50 text-amber-500 font-semibold text-xs tracking-widest uppercase hover:bg-amber-500 hover:text-black transition-all">
+                🛒 Carrito <span id="cart-count" class="ml-2 bg-amber-500 text-black px-1.5 py-0.5 rounded-full text-[10px] font-bold">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16 flex-grow w-full">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-amber-500 text-xs tracking-[0.3em] uppercase font-semibold">Colección Exclusiva</span>
+            <h1 class="font-cinzel text-3xl sm:text-4xl font-bold mt-2 text-white">Perfumes de 100ML</h1>
+            <div class="w-16 h-0.5 bg-amber-500 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+
+            <!-- 1. QAHWA -->
+            <div class="bg-[#121212] border border-amber-500/10 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition-all group">
+                <div class="relative h-80 overflow-hidden bg-[#161616]">
+                    <img src="qawha.jpg" alt="Kamrah Qahwa" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="p-6 pt-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-white text-lg font-medium mb-1">Kamrah Qahwa</h3>
+                        <p class="text-gray-400 text-sm mb-4 font-light">100ml</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <span class="text-xl font-bold text-amber-400">Q 650.00</span>
+                        <button onclick="agregarAlCarrito('Kamrah Qahwa (100ml)', 650)" class="px-4 py-2 rounded-lg bg-amber-500 text-black text-xs font-bold tracking-widest uppercase hover:bg-amber-400 transition-colors">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. CONFESSION -->
+            <div class="bg-[#121212] border border-amber-500/10 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition-all group">
+                <div class="relative h-80 overflow-hidden bg-[#161616]">
+                    <img src="confession.jpg" alt="His Confession" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="p-6 pt-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-white text-lg font-medium mb-1">His Confession</h3>
+                        <p class="text-gray-400 text-sm mb-4 font-light">100ml</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <span class="text-xl font-bold text-amber-400">Q 625.00</span>
+                        <button onclick="agregarAlCarrito('His Confession (100ml)', 625)" class="px-4 py-2 rounded-lg bg-amber-500 text-black text-xs font-bold tracking-widest uppercase hover:bg-amber-400 transition-colors">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. ICE -->
+            <div class="bg-[#121212] border border-amber-500/10 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition-all group">
+                <div class="relative h-80 overflow-hidden bg-[#161616]">
+                    <img src="ice.jpg" alt="Khamrah Ice" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="p-6 pt-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-white text-lg font-medium mb-1">Hawas Ice</h3>
+                        <p class="text-gray-400 text-sm mb-4 font-light">100ml</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <span class="text-xl font-bold text-amber-400">Q 650.00</span>
+                        <button onclick="agregarAlCarrito('Hawas Ice (100ml)', 650)" class="px-4 py-2 rounded-lg bg-amber-500 text-black text-xs font-bold tracking-widest uppercase hover:bg-amber-400 transition-colors">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. MEGA -->
+            <div class="bg-[#121212] border border-amber-500/10 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition-all group">
+                <div class="relative h-80 overflow-hidden bg-[#161616]">
+                    <img src="mega.jpg" alt="Megamare" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="p-6 pt-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-white text-lg font-medium mb-1">Odissey Mega</h3>
+                        <p class="text-gray-400 text-sm mb-4 font-light">100ml</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <span class="text-xl font-bold text-amber-400">Q 525.00</span>
+                        <button onclick="agregarAlCarrito('Odissey Mega (100ml)', 525)" class="px-4 py-2 rounded-lg bg-amber-500 text-black text-xs font-bold tracking-widest uppercase hover:bg-amber-400 transition-colors">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. KING -->
+            <div class="bg-[#121212] border border-amber-500/10 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition-all group">
+                <div class="relative h-80 overflow-hidden bg-[#161616]">
+                    <img src="king.jpg" alt="Bratislava / King" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="p-6 pt-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-white text-lg font-medium mb-1">Bharara King</h3>
+                        <p class="text-gray-400 text-sm mb-4 font-light">100ml</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <span class="text-xl font-bold text-amber-400">Q 759.00</span>
+                        <button onclick="agregarAlCarrito('Bharara King (100ml)', 759)" class="px-4 py-2 rounded-lg bg-amber-500 text-black text-xs font-bold tracking-widest uppercase hover:bg-amber-400 transition-colors">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. 9PM -->
+            <div class="bg-[#121212] border border-amber-500/10 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition-all group">
+                <div class="relative h-80 overflow-hidden bg-[#161616]">
+                    <img src="9pm.jpg" alt="Afnan 9PM" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="p-6 pt-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-white text-lg font-medium mb-1">Afnan 9PM</h3>
+                        <p class="text-gray-400 text-sm mb-4 font-light">100ml</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <span class="text-xl font-bold text-amber-400">Q 630.00</span>
+                        <button onclick="agregarAlCarrito('Afnan 9PM (100ml)', 630)" class="px-4 py-2 rounded-lg bg-amber-500 text-black text-xs font-bold tracking-widest uppercase hover:bg-amber-400 transition-colors">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- MODAL / CARRITO LATERAL -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex justify-end">
+        <div class="bg-[#121212] border-l border-amber-500/20 w-full max-w-md h-full p-6 flex flex-col justify-between shadow-2xl">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                    <h2 class="font-cinzel text-xl font-bold text-amber-500">Tu Carrito</h2>
+                    <button onclick="toggleCart()" class="text-gray-400 hover:text-white text-xl">&times;</button>
+                </div>
+                <div id="cart-items" class="py-6 space-y-4 overflow-y-auto max-h-[60vh]">
+                    <p class="text-gray-500 text-sm text-center">El carrito está vacío.</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-300 text-sm font-semibold">Total:</span>
+                    <span id="cart-total" class="text-xl font-bold text-amber-400">Q 0.00</span>
+                </div>
+                <button onclick="procedurarPedido()" class="w-full py-3.5 rounded-xl bg-amber-500 text-black font-bold text-xs tracking-[0.2em] uppercase hover:bg-amber-400 transition-all shadow-[0_0_20px_rgba(217,119,6,0.3)]">
+                    Hacer Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-t border-amber-500/10 bg-[#070707] py-8 text-center text-xs text-gray-500 tracking-wider">
+        <p>&copy; 2026 DJSG Parfums. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('djsg_carrito')) || [];
+
+        function actualizarContador() {
+            document.getElementById('cart-count').innerText = carrito.length;
+        }
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            localStorage.setItem('djsg_carrito', JSON.stringify(carrito));
+            actualizarContador();
+            renderizarCarrito();
+            alert(`¡"${nombre}" agregado al carrito!`);
+        }
+
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            localStorage.setItem('djsg_carrito', JSON.stringify(carrito));
+            actualizarContador();
+            renderizarCarrito();
+        }
+
+        function renderizarCarrito() {
+            const contenedor = document.getElementById('cart-items');
+            const totalElemento = document.getElementById('cart-total');
+            
+            if (carrito.length === 0) {
+                contenedor.innerHTML = `<p class="text-gray-500 text-sm text-center">El carrito está vacío.</p>`;
+                totalElemento.innerText = 'Q 0.00';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            carrito.forEach((item, index) => {
+                total += item.precio;
+                html += `
+                    <div class="flex justify-between items-center bg-[#1a1a1a] p-3 rounded-xl border border-white/5">
+                        <div>
+                            <p class="text-white text-sm font-medium">${item.nombre}</p>
+                            <p class="text-amber-400 text-xs font-bold">Q ${item.precio.toFixed(2)}</p>
+                        </div>
+                        <button onclick="eliminarDelCarrito(${index})" class="text-red-400 hover:text-red-300 text-xs font-semibold">Eliminar</button>
+                    </div>
+                `;
+            });
+
+            contenedor.innerHTML = html;
+            totalElemento.innerText = `Q ${total.toFixed(2)}`;
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+            renderizarCarrito();
+        }
+
+        function procedurarPedido() {
+            if (carrito.length === 0) {
+                alert('Tu carrito está vacío. Agrega al menos un producto para continuar.');
+                return;
+            }
+            window.location.href = 'pedido.html';
+        }
+
+        actualizarContador();
+    </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJSG Parfums | Hacer Pedido</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0b0b; color: #f3f4f6; }
+
+        /* Animaciones personalizadas de atomización */
+        @keyframes sprayMist {
+            0% { transform: scale(0.2) translateY(20px); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: scale(1.6) translateY(-40px); opacity: 0; }
+        }
+        @keyframes floatBottle {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(-3deg); }
+        }
+        .animar-atomizador {
+            animation: floatBottle 2s ease-in-out infinite;
+        }
+        .particula-spray {
+            animation: sprayMist 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#0b0b0b] text-gray-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+
+    <!-- Pantalla de Carga / Animación de Atomización -->
+    <div id="modal-atomizacion" class="fixed inset-0 z-50 bg-[#0b0b0b]/95 backdrop-blur-md hidden flex-col items-center justify-center text-center">
+        <div class="relative mb-6">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex gap-2">
+                <span class="particula-spray text-amber-400 text-xl font-bold delay-75">✨</span>
+                <span class="particula-spray text-amber-500 text-2xl font-bold delay-150">💧</span>
+                <span class="particula-spray text-amber-300 text-lg font-bold delay-300">✨</span>
+            </div>
+            <div class="animar-atomizador w-20 h-24 border-2 border-amber-500 rounded-xl bg-amber-500/10 flex flex-col items-center justify-center shadow-[0_0_30px_rgba(217,119,6,0.4)]">
+                <div class="w-6 h-3 bg-amber-500 rounded-t-sm mb-1"></div>
+                <span class="font-cinzel text-amber-400 font-bold text-xl">DJSG</span>
+            </div>
+        </div>
+        <h2 class="font-cinzel text-2xl font-bold text-amber-400 tracking-wider mb-2">Atomizando tu Pedido...</h2>
+        <p class="text-gray-400 text-xs tracking-widest uppercase">Registrando tu orden en el sistema</p>
+    </div>
+
+    <!-- Notificación Toast Flotante -->
+    <div id="toast-notification" class="fixed top-6 right-6 z-50 transform translate-x-full opacity-0 transition-all duration-300 bg-[#161616] border border-amber-500/40 text-white px-6 py-4 rounded-xl shadow-[0_5px_25px_rgba(0,0,0,0.8)] flex items-center gap-3">
+        <span id="toast-icon" class="text-amber-500 font-bold">✨</span>
+        <p id="toast-mensaje" class="text-sm font-medium tracking-wide">Mensaje de notificación</p>
+    </div>
+
+    <header class="sticky top-0 z-50 bg-[#0b0b0b]/90 backdrop-blur-md border-b border-amber-500/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="inicio.html" class="flex items-center gap-3 group">
+                <svg width="45" height="45" viewBox="0 0 100 100" class="fill-amber-500">
+                    <path d="M50 5 L90 25 L90 75 L50 95 L10 75 L10 25 Z" fill="none" stroke="#d97706" stroke-width="4"/>
+                    <text x="50" y="58" font-family="'Cinzel', serif" font-size="32" font-weight="bold" fill="#d97706" text-anchor="middle">D</text>
+                </svg>
+                <div class="flex flex-col">
+                    <span class="font-cinzel text-xl font-bold tracking-widest text-amber-500">DJSG</span>
+                    <span class="text-[9px] tracking-[0.3em] text-gray-400 font-semibold uppercase">Parfums</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider uppercase">
+                <a href="inicio.html" class="text-gray-300 hover:text-amber-500 transition-colors">Inicio</a>
+                <a href="Perfumes 100ml.html" class="text-gray-300 hover:text-amber-500 transition-colors">Perfumes 100ml</a>
+                <a href="Decants Menu.html" class="text-gray-300 hover:text-amber-500 transition-colors">Decants</a>
+                <a href="pedido.html" class="text-amber-500 transition-colors">Hacer Pedido</a>
+            </nav>
+
+            <a href="pedido.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-amber-500/50 text-amber-500 font-semibold text-xs tracking-widest uppercase hover:bg-amber-500 hover:text-black transition-all">
+                Ordenar Ahora
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-16 flex-grow w-full">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <span class="text-amber-500 text-xs tracking-[0.3em] uppercase font-semibold">Página de Hacer Pedido</span>
+            <h1 class="font-cinzel text-3xl sm:text-4xl font-bold mt-2 text-white">Completa tu Pedido</h1>
+            <p class="text-gray-400 text-sm mt-2 font-light">Revisa tus productos seleccionados y llena tus datos para registrar tu orden.</p>
+            <div class="w-16 h-0.5 bg-amber-500 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-5 bg-[#121212] border border-amber-500/20 rounded-2xl p-6 flex flex-col justify-between h-fit">
+                <div>
+                    <h2 class="font-cinzel text-lg font-bold text-amber-500 mb-4 pb-2 border-b border-white/10">Tus Productos</h2>
+                    <div id="resumen-carrito" class="space-y-3 max-h-[350px] overflow-y-auto pr-1">
+                        <p class="text-gray-500 text-sm text-center py-4">No hay productos seleccionados.</p>
+                    </div>
+                </div>
+                <div class="border-t border-white/10 pt-4 mt-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-400 text-sm">Total a pagar:</span>
+                        <span id="resumen-total" class="text-xl font-bold text-amber-400">Q 0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7">
+                <form id="pedido-form" onsubmit="enviarAGoogleSheets(event)" class="bg-[#121212] border border-amber-500/20 rounded-2xl p-8 shadow-[0_4px_25px_rgba(0,0,0,0.6)]">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 tracking-wider uppercase mb-2">Nombre Completo</label>
+                            <input type="text" id="input-nombre" required placeholder="Ej. Juan Pérez" class="w-full bg-[#0a0a0a] border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 tracking-wider uppercase mb-2">Teléfono / WhatsApp</label>
+                            <input type="tel" id="input-telefono" required placeholder="Ej. +502 0000-0000" class="w-full bg-[#0a0a0a] border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-xs font-semibold text-gray-300 tracking-wider uppercase mb-2">Correo Electrónico</label>
+                        <input type="email" id="input-correo" required placeholder="tucorreo@email.com" class="w-full bg-[#0a0a0a] border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-xs font-semibold text-gray-300 tracking-wider uppercase mb-2">Notas Extra</label>
+                        <textarea id="input-detalles" rows="4" placeholder="Ciudad, zona, referencias o especificaciones..." class="w-full bg-[#0a0a0a] border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-enviar" class="w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold text-xs tracking-[0.2em] uppercase hover:opacity-95 transition-all shadow-[0_0_20px_rgba(217,119,6,0.3)]">
+                        Enviar Pedido
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-amber-500/10 bg-[#070707] py-8 text-center text-xs text-gray-500 tracking-wider">
+        <p>&copy; 2026 DJSG Parfums. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('djsg_carrito')) || [];
+
+        function mostrarToast(mensaje, icono = "✨") {
+            const toast = document.getElementById('toast-notification');
+            const mensajeEl = document.getElementById('toast-mensaje');
+            const iconoEl = document.getElementById('toast-icon');
+
+            mensajeEl.innerText = mensaje;
+            iconoEl.innerText = icono;
+
+            toast.classList.remove('translate-x-full', 'opacity-0');
+            toast.classList.add('translate-x-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-x-0', 'opacity-100');
+                toast.classList.add('translate-x-full', 'opacity-0');
+            }, 3500);
+        }
+
+        function renderizarResumenPedido() {
+            const contenedor = document.getElementById('resumen-carrito');
+            const totalElemento = document.getElementById('resumen-total');
+
+            if (carrito.length === 0) {
+                contenedor.innerHTML = `<p class="text-gray-500 text-sm text-center py-4">No hay productos seleccionados.</p>`;
+                totalElemento.innerText = 'Q 0.00';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            carrito.forEach((item, index) => {
+                total += item.precio;
+                html += `
+                    <div class="flex justify-between items-center bg-[#1a1a1a] p-3 rounded-xl border border-white/5">
+                        <div>
+                            <p class="text-white text-xs font-medium">${item.nombre}</p>
+                            <p class="text-amber-400 text-xs font-bold">Q ${item.precio.toFixed(2)}</p>
+                        </div>
+                        <button type="button" onclick="eliminarItem(${index})" class="text-red-400 hover:text-red-300 text-[10px] uppercase font-semibold">Quitar</button>
+                    </div>
+                `;
+            });
+
+            contenedor.innerHTML = html;
+            totalElemento.innerText = `Q ${total.toFixed(2)}`;
+        }
+
+        function eliminarItem(index) {
+            carrito.splice(index, 1);
+            localStorage.setItem('djsg_carrito', JSON.stringify(carrito));
+            renderizarResumenPedido();
+            mostrarToast("Producto eliminado del carrito", "🗑️");
+        }
+
+        function enviarAGoogleSheets(event) {
+            event.preventDefault();
+
+            if (carrito.length === 0) {
+                mostrarToast("Tu carrito está vacío", "⚠️");
+                return;
+            }
+
+            // Mostrar modal de animación de atomización de perfume
+            const modalAtomizacion = document.getElementById('modal-atomizacion');
+            modalAtomizacion.classList.remove('hidden');
+            modalAtomizacion.classList.add('flex');
+
+            const nombre = document.getElementById('input-nombre').value;
+            const telefono = document.getElementById('input-telefono').value;
+            const correo = document.getElementById('input-correo').value;
+            const detalles = document.getElementById('input-detalles').value;
+
+            let total = 0;
+            let productosLista = [];
+            carrito.forEach(item => {
+                total += item.precio;
+                productosLista.push(`${item.nombre} (Q ${item.precio.toFixed(2)})`);
+            });
+
+            const fechaActual = new Date().toLocaleString();
+            const productosTexto = productosLista.join(', ') + (detalles ? ` | Notas: ${detalles}` : '');
+            const totalTexto = `Q ${total.toFixed(2)}`;
+
+            const datosPedido = {
+                Fecha: fechaActual,
+                Nombre: nombre,
+                Telefono: telefono,
+                Correo: correo,
+                Producto: productosTexto,
+                Total: totalTexto
+            };
+
+            const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbxcE7WKYr3PxjQ3kA-JVX4V3aoQyEpQ24qRymwzmRVDHqWFdFZpGRrWwLKOY0BGYaO4/exec";
+
+            fetch(URL_APPS_SCRIPT, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datosPedido)
+            })
+            .then(() => {
+                setTimeout(() => {
+                    modalAtomizacion.classList.remove('flex');
+                    modalAtomizacion.classList.add('hidden');
+                    mostrarToast("¡Pedido enviado con éxito!", "🎉");
+                    localStorage.removeItem('djsg_carrito');
+                    setTimeout(() => {
+                        window.location.href = 'inicio.html';
+                    }, 1200);
+                }, 1500); // Pequeño delay estético para apreciar la animación
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                modalAtomizacion.classList.remove('flex');
+                modalAtomizacion.classList.add('hidden');
+                mostrarToast("Hubo un error de conexión", "❌");
+            });
+        }
+
+        renderizarResumenPedido();
+    </script>
+</body>
+</html>

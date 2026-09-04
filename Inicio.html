@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJSG Parfums | Inicio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0b0b; color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-[#0b0b0b] text-gray-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+
+    <header class="sticky top-0 z-50 bg-[#0b0b0b]/90 backdrop-blur-md border-b border-amber-500/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <svg width="45" height="45" viewBox="0 0 100 100" class="fill-amber-500 transition-transform duration-500 group-hover:scale-110">
+                    <path d="M50 5 L90 25 L90 75 L50 95 L10 75 L10 25 Z" fill="none" stroke="#d97706" stroke-width="4"/>
+                    <text x="50" y="58" font-family="'Cinzel', serif" font-size="32" font-weight="bold" fill="#d97706" text-anchor="middle">D</text>
+                </svg>
+                <div class="flex flex-col">
+                    <span class="font-cinzel text-xl font-bold tracking-widest text-amber-500">DJSG</span>
+                    <span class="text-[9px] tracking-[0.3em] text-gray-400 font-semibold uppercase">Parfums</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wider uppercase">
+                <a href="inicio.html" class="text-amber-500 transition-colors">Inicio</a>
+                <a href="Perfumes 100ml.html" class="text-gray-300 hover:text-amber-500 transition-colors">Perfumes 100ml</a>
+                <a href="Decants Menu.html" class="text-gray-300 hover:text-amber-500 transition-colors">Decants</a>
+                <a href="pedido.html" class="text-gray-300 hover:text-amber-500 transition-colors">Hacer Pedido</a>
+            </nav>
+
+            <a href="pedido.html" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-amber-500/50 text-amber-500 font-semibold text-xs tracking-widest uppercase hover:bg-amber-500 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(217,119,6,0.15)]">
+                Ordenar Ahora
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center px-6 py-16 relative overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-amber-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1 px-4 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs tracking-[0.2em] uppercase font-semibold mb-6">
+                Alta Perfumería de Lujo
+            </span>
+            <h1 class="font-cinzel text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
+ <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-100 to-amber-500 drop-shadow-[0_0_15px_rgba(251,191,36,0.6)] animate-pulse">DJSG</span> <span class="text-white font-normal">PARFAUMS</span>
+</h1>
+            </h1>
+            <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                Descubre nuestra exclusiva selección de fragancias de diseñador y colecciones árabes. Elegancia, distinción y presencia en cada atomizaciòn.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="Perfumes 100ml.html" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold text-sm tracking-widest uppercase hover:opacity-95 transition-all shadow-[0_0_25px_rgba(217,119,6,0.4)]">
+                    Ver Perfumes 100ml
+                </a>
+                <a href="Decants Menu.html" class="w-full sm:w-auto px-8 py-4 rounded-full border border-gray-700 bg-gray-900/50 text-white font-medium text-sm tracking-widest uppercase hover:border-amber-500/50 hover:bg-gray-800/80 transition-all">
+                    Explorar Decants
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-amber-500/10 bg-[#070707] py-8 text-center text-xs text-gray-500 tracking-wider">
+        <p>&copy; 2026 DJSG Parfums. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
